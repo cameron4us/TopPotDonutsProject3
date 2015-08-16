@@ -1,0 +1,33 @@
+//TopPotDonutsProject3
+<script>
+	
+	
+	donutFranchise = function(location, minCustomerPH, maxCustomerPH, averageDonutPCustomer, openHour, closeHour) {
+		this.location = location;
+		this.minCustomerPH = minCustomerPH;
+		this.maxCustomerPH = maxCustomerPH;
+		this.averageDonutPCustomer = averageDonutPCustomer;
+		this.openHour = openHour;
+		this.closeHour = closeHour;
+
+		this.getDonutsPerHour = function() {
+			return (this.getCustomersPerHour() * this.averageDonutPCustomer);
+		};	
+		//12 hour work day
+		this.getDonutsPerDay = function() {
+			return (this.getDonutsPerHour() * (this.closeHour - this.openHour));
+		};
+
+		this.getCustomersPerHour = function() {
+			return Math.floor(Math.random() * (this.maxCustomerPH - this.minCustomerPH +1)) + this.minCustomerPH;
+		};
+	};
+
+	var downtown = new donutFranchise("Downtown", 8, 43, 4.5, 6, 18),
+		capitolHill = new donutFranchise("Capitol Hill", 4, 37, 2, 6, 18),
+		southLakeUnion = new donutFranchise("South Lake Union", 9, 23, 6.33, 6, 18),
+		wedgewood = new donutFranchise("Wedgewood", 2, 28, 1.25, 6, 18),
+		ballard = new donutFranchise("Ballard", 8, 58, 3.75, 6, 18);
+
+	
+</script>
